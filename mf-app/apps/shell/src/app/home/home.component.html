@@ -1,0 +1,10 @@
+<div class="container">
+  <ng-container *ngFor="let seal of seals | async">
+    <div class="child">
+      <h3>{{ seal.title }}</h3>
+      <div>
+        <img [src]="seal.url" alt="">
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,7 @@
+{
+  "/": {
+    "target": "https://www.reddit.com/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

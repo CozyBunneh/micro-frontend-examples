@@ -1,0 +1,14 @@
+<div class="container">
+  <ng-container *ngFor="let seal of seals | async">
+    <div
+      class="child"
+      (click)="toggleSelectedSeal(seal)"
+      [ngClass]="{ selected: isSelected(seal.id) | async }"
+    >
+      <h3>{{ seal.title }}</h3>
+      <div>
+        <img [src]="seal.url" alt="" />
+      </div>
+    </div>
+  </ng-container>
+</div>
