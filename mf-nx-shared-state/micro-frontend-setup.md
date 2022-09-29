@@ -123,7 +123,7 @@ export class GalleryApiService {
         response.data.children.forEach((res: any) => {
           const title = res.data.title;
           const id = res.data.id;
-          const url = res.data.preview?.images[0]?.resolution[2]?.url;
+          const url = res.data.preview?.images[0]?.resolutions[2]?.url;
           if (url) {
             seals.push({ id, title, url: url.replaceAll('&amp;', '&') });
           }
@@ -154,15 +154,16 @@ libs/shared/data-store/src/lib/gallery-store/state/gallery.effects.ts
 
 ```ts
 ....
-fetch({
-    run: (action) => {
-        return this.galleryApiService.getCatsList().pipe(
-            map((res) => GalleryActions.loadGallerySuccess({
-                    gallery: res,
-                })
-            )
-        );
-    },
+mergeMap(() => {
+  return this.galleryApiService.getSealList().pipe(
+    map((res) => {
+      return GalleryActions.loadGallerySuccess({ gallery: res });
+    }),
+    catchError((error) =>
+      of(GalleryActions.loadGalleryFailure({ error }))
+    )
+  );
+})
 ....
 constructor(
     private readonly actions$: Actions,
@@ -211,7 +212,7 @@ const reducer = createReducer(
 ...
 ```
 
-### Add the selected cats state selector
+### Add the selected seals state selector
 
 libs/shared/data-store/src/lib/gallery-store/state/gallery.selectors.ts
 
