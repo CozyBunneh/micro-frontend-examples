@@ -396,7 +396,53 @@ export class AppComponent implements OnInit {
 }
 ```
 
-### Don’t forget to clean up all the styles from
+### Don’t forget to clean up all the styles from (if needed)
 
 - apps/gallery/src/app/app.component.less
 - apps/shell/src/app/app.component.less
+
+### CORS
+
+You may need to adjust Angular to set some CORS policy to allow for connecting to Reddit. You cannot use a security hardened Firefox setup to try this example btw, but a regular Chrome or Safari should work fine.
+
+In the root of the workspace create the file **proxy.conf.json**:
+
+```json
+{
+  "/": {
+    "target": "https://www.reddit.com/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
+```
+
+apps/shell/project.json
+
+```json
+...
+"production": {
+  "browserTarget": "shell:build:production",
+  "proxyConfig": "proxy.conf.json"
+},
+"development": {
+  "browserTarget": "shell:build:development",
+  "proxyConfig": "proxy.conf.json"
+}
+...
+```
+
+apps/gallery/project.json
+
+```json
+...
+"production": {
+  "browserTarget": "gallery:build:production",
+  "proxyConfig": "proxy.conf.json"
+},
+"development": {
+  "browserTarget": "gallery:build:development",
+  "proxyConfig": "proxy.conf.json"
+}
+...
+```
