@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Root Config</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   <!--
     Remove this if you only support browsers that support async/await.
     This is needed by babel to share largeish helper code for compiling async/await in older
@@ -69,12 +74,42 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
+
+  <style>
+    body {
+      margin: 0;
+    }
+    <!-- body nav { -->
+    <!--   height: 100%; -->
+    <!-- } -->
+    <!-- body nav div { -->
+    <!--   height: 100%; -->
+    <!-- } -->
+  </style>
+
+  <template id="single-spa-layout">
+    <single-spa-router>
+      <nav>
+        <application name="@test-org/navbar"></application>
+      </nav>
+      <main>
+        <route default>
+          <application name="@test-org/homepage"></application>
+        </route>
+        <route path="/about">
+          <application name="@test-org/aboutpage"></application>
+        </route>
+        <route path="/contact">
+          <application name="@test-org/contactpage"></application>
+        </route>
+      </main>
+    </single-spa-router>
+  </template>
 </head>
 <body>
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <main></main>
   <script>
     System.import('@test-org/root-config');
   </script>

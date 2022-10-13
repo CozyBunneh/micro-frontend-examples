@@ -189,3 +189,39 @@ In project root
 ```sh
 npm start
 ```
+
+## Root coding
+
+### Add angular material stuff
+
+src/index.ejs
+```html
+...
+<head>
+  ...
+  <title>Root Config</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  ...
+</head>
+...
+```
+
+## Navbar coding
+
+### Add angular material with icons
+
+I was for some reason unable to add this with ng so I had to go the npm way with more manual stuff.
+
+```sh
+npm i @angular/material
+```
+
+navbar/angular.json
+```json
+"styles": [
+  "src/styles.less",
+  "node_modules/@angular/material/prebuilt-themes/purple-green.css",
+]
+```

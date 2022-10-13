@@ -1,0 +1,29 @@
+<mat-sidenav-container
+  class="container"
+  [class.dark-theme]="isDarkTheme"
+  [dir]="direction"
+>
+  <mat-sidenav
+    #sidenav
+    class="sidenav mat-elevation-z10"
+    [opened]="!isScreenSmall"
+    [mode]="isScreenSmall ? 'over' : 'side'"
+  >
+    <mat-toolbar color="primary">
+      <span>Example</span>
+    </mat-toolbar>
+    <mat-nav-list>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="content">
+    <app-toolbar
+      (toggleSidenav)="sidenav.toggle()"
+      (toggleTheme)="toggleTheme()"
+      (toggleDirection)="toggleDirection()"
+    ></app-toolbar>
+    <div class="wrapper">
+      <!-- <router-outlet></router-outlet> -->
+    </div>
+  </div>
+</mat-sidenav-container>
+
