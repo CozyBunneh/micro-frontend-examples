@@ -1,0 +1,57 @@
+<div class="topbar">
+  <pn-icon class="pn" symbol="pn-mark" small="false" color="white"></pn-icon>
+  <hr>
+  <ul class="desktop">
+    <li class="spacer">
+      <app-menu-select name="Production Portal" [links]="links">
+        <ng-container [ngTemplateOutlet]="linksTemplate">
+        </ng-container>
+      </app-menu-select>
+    </li>
+    <li>
+      <app-menu-select name="English" [small]="true" iconLeft="globe">
+        <ng-container [ngTemplateOutlet]="languagesTemplate">
+        </ng-container>
+      </app-menu-select>
+    </li>
+    <li>
+      <app-menu-button name="Anna S." iconLeft="user" [small]="true"></app-menu-button>
+    </li>
+    <li>
+      <app-menu-button iconLeft="transfer" [small]="true"></app-menu-button>
+    </li>
+  </ul>
+  <ul class="mobile">
+    <li class="spacer">
+      <app-menu-select name="Production Portal" [links]="links" [small]="true">
+        <ng-container [ngTemplateOutlet]="linksTemplate">
+        </ng-container>
+      </app-menu-select>
+    </li>
+    <li>
+      <app-menu-select iconLeft="ellipsis-v" [small]="true" [rightAlign]="true">
+        <ul class="menu">
+          <li>
+            <app-menu-select-select name="Languages" iconLeft="globe" iconRight="angle-down">
+              <app-menu-select-option *ngFor="let language of languages" [name]="language"></app-menu-select-option>
+            </app-menu-select-select>
+          </li>
+          <li>
+            <app-menu-select-link name="Anna S." iconLeft="user" [small]="true"></app-menu-select-link>
+          </li>
+          <li>
+            <app-menu-select-link name="Logout" iconLeft="transfer" [small]="true"></app-menu-select-link>
+          </li>
+        </ul>
+      </app-menu-select>
+    </li>
+  </ul>
+</div>
+
+<ng-template #linksTemplate>
+  <app-menu-select-link *ngFor="let link of links" [name]="link"></app-menu-select-link>
+</ng-template>
+
+<ng-template #languagesTemplate>
+  <app-menu-select-link *ngFor="let language of languages" [name]="language"></app-menu-select-link>
+</ng-template>

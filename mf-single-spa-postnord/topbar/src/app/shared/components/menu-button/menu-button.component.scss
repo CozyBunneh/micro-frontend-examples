@@ -1,0 +1,44 @@
+@import '/src/styles/buttons.scss';
+
+button {
+  @include button;
+
+  &:active::before {
+    @include button-click-active;
+  }
+
+  &::before {
+    @include button-click;
+  }
+
+  &::after {
+    @include button-hover;
+  }
+
+  &:hover::after {
+    @include button-hover-active;
+  }
+
+  &.active::after {
+    @include button-hover-active;
+  }
+
+  h1 {
+    margin: 0;
+  }
+  h3 {
+    margin: 0;
+  }
+}
+
+.icon-left {
+  @include button-icon-left;
+}
+
+.icon-right {
+  @include button-icon-right;
+}
+
+.only-icon {
+  margin-right: 0;
+}

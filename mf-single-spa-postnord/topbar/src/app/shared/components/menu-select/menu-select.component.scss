@@ -1,0 +1,108 @@
+@import 'pn-design-assets/pn-assets/styles/pn-styles.scss';
+@import '/src/styles/buttons.scss';
+
+button {
+  @include button;
+
+  &:active::before {
+    @include button-click-active;
+  }
+
+  &::before {
+    @include button-click;
+  }
+
+  &::after {
+    @include button-hover;
+  }
+
+  &:hover::after {
+    @include button-hover-active;
+  }
+
+  &.active::after {
+    @include button-hover-active;
+  }
+
+  h1 {
+    margin: 0;
+  }
+  h3 {
+    margin: 0;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $white;
+  min-width: 14.5em;
+  margin-left: 1rem;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  top: 6.5rem;
+  z-index: 1;
+}
+
+.right {
+  right: 1rem;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+
+  80% {
+    transform: scaleY(1.1);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.show {
+  display: block;
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+.icon-left {
+  @include button-icon-left;
+}
+
+.icon-right {
+  @include button-icon-right;
+
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+
+  &.active {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+
+  &.only-icon {
+    margin-right: 0rem;
+  }
+}

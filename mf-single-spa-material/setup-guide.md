@@ -215,7 +215,8 @@ src/index.ejs
 I was for some reason unable to add this with ng so I had to go the npm way with more manual stuff.
 
 ```sh
-npm i @angular/material
+npm i @postnord/web-components
+npm i -D pn-design-assets
 ```
 
 navbar/angular.json

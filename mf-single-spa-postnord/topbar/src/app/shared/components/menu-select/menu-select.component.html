@@ -1,0 +1,12 @@
+<div>
+  <button [class.active]="show" [class.icon-only]="name === ''">
+    <pn-icon *ngIf="iconLeft" class="icon-left" [class.only-icon]="name === ''" [symbol]="iconLeft" color="white"
+      small="false"></pn-icon>
+    <h1 *ngIf="!small">{{name}}</h1>
+    <h3 *ngIf="small">{{name}}</h3>
+    <pn-icon class="icon-right" [class.active]="show" symbol="angle-down" color="white" small="false"></pn-icon>
+  </button>
+  <ul #dropdown [class.show]="show" [class.right]="rightAlign" class="dropdown-content">
+    <ng-content></ng-content>
+  </ul>
+</div>

@@ -1,0 +1,23 @@
+@import 'pn-design-assets/pn-assets/styles/pn-styles.scss';
+
+a {
+  background-color: $gray25;
+  color: $blue700;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  // border-bottom: 1px solid $gray200;
+
+  &:hover {
+    background-color: $blue50;
+  }
+}
+
+.iconLeft {
+  margin-right: 1rem;
+}
+
+.iconRight {
+  margin-left: auto;
+}
