@@ -8,6 +8,7 @@ a {
   text-decoration: none;
   display: flex;
   align-items: center;
+  height: $linkHeight;
 
   &:hover {
     background-color: $blue50;
