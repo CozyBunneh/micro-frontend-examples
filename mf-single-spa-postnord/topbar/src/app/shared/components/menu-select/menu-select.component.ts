@@ -16,7 +16,7 @@ export class MenuSelectComponent {
 
   @HostListener('mouseover', ['$event'])
   onMouseEnter(event: Event) {
-    this.isInsideContentSelect = event.target?.name === 'select-select';
+    this.isInsideContentSelect = this.getIsInsideContentSelect(event);
     this.isInside = true;
   }
 
@@ -43,5 +43,41 @@ export class MenuSelectComponent {
 
   close() {
     this.show = false;
+  }
+
+  private getIsInsideContentSelect(event: Event): boolean {
+    let isInside = this.isASelectElement(event.target as HTMLElement);
+    if (
+      this.isElementASelectChild(
+        event.target as HTMLElement,
+        event.currentTarget as HTMLElement
+      )
+    ) {
+      isInside = true;
+    }
+    return isInside;
+  }
+
+  private isASelectElement(target?: HTMLElement): boolean {
+    return target?.name === 'select-select';
+  }
+
+  private isElementASelectChild(
+    target?: HTMLElement,
+    currentTarget?: HTMLElement
+  ): boolean {
+    if (currentTarget?.hasChildNodes() && target) {
+      let selectedChildren = currentTarget.querySelectorAll(
+        '[name="select-select"]'
+      );
+      for (let i = 0; i < selectedChildren.length; i++) {
+        let child = selectedChildren[i];
+        if (child.hasChildNodes() && child.contains(target)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 }

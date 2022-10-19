@@ -2,3 +2,31 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins.scss';
 @import 'styles/grids.scss';
+
+// Firefox scrollbar
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $blue700 white;
+}
+
+// Other browser scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+
+  &-track {
+    background: $white;
+    border-radius: 8px;
+  }
+
+  &-thumb {
+    background: $blue700;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 3px solid $white;
+
+    &:hover {
+      background: $blue400;
+    }
+  }
+}
