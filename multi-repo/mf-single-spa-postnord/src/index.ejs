@@ -47,9 +47,11 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
         "@postnord/root-config": "//localhost:9000/postnord-root-config.js",
-        "@postnord/topbar": "//localhost:4200/main.js"
+        "@postnord/topbar": "//localhost:4200/main.js",
+        "@postnord/side-menu": "//localhost:4201/main.js",
+        "@postnord/footer": "//localhost:4202/main.js",
+        "@postnord/start-page": "//localhost:4203/main.js"
       }
     }
   </script>
@@ -59,7 +61,7 @@
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
     Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
   -->
-  <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.4/dist/zone.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
   <% if (isLocal) { %>
@@ -74,12 +76,46 @@
     html {
       font-size: 62.5%;
     }
+
     body {
       font-size: 1.6rem;
       margin: 0;
     }
-  </style>
 
+    .header {
+      grid-area: header;
+    }
+    .menu {
+      grid-area: menu;
+      height: 100%;
+    }
+    .menu > div {
+      height: 100%;
+    }
+    .main {
+      grid-area: main;
+      overflow: auto;
+    }
+    .footer {
+    }
+
+    .layout {
+      display: grid;
+      grid-template-areas:
+        'header header'
+        'menu main';
+      grid-template-rows: max-content auto;
+      grid-template-columns: max-content auto;
+      //gap: 10px;
+      //background-color: #2196F3;
+      height: 100vh;
+    }
+
+    .layout > div {
+      //background-color: rgba(255, 255, 255, 0.8);
+      padding: 0;
+    }
+  </style>
 </head>
 <body>
   <noscript>

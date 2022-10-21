@@ -1,0 +1,14 @@
+$small-phones: "only screen and (max-width: 320px)";
+$phones: "only screen and (max-width: 576px)";
+$bigger-than-phones: "only screen and (min-width: 576px)";
+$small-pads: "only screen and (max-width: 767px)";
+$small-pads-only: "only screen and (max-width: 767px) and (min-width: 576px)";
+$bigger-than-small-pads: "only screen and (min-width: 767px)";
+$ipads-only: "(max-width: 1024px) and (min-width: 768px)";
+$ipads: "only screen and (max-width: 1024px)";
+$long-phones: "only screen and (max-width: 375px) and (min-height: 680px)";
+$large-desktop: "(min-width: 1500px)";
+$xl: "(min-width: 1200px)";
+$desktop: "(min-width: 1025px)";
+$small-desktop: "(max-width: 1250px) and (min-width: 1025px)";
+

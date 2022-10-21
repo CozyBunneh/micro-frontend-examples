@@ -1,0 +1,13 @@
+@import 'pn-design-assets/pn-assets/styles/pn-styles.scss';
+
+div {
+  background-color: $blue900;
+  color: $white;
+  height: 100%;
+  margin: 0;
+
+  &> p {
+    margin: 0;
+  }
+}
+

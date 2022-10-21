@@ -1,0 +1,57 @@
+// Grid system for responsive design
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1rem;
+}
+
+.col {
+  &-1 {
+    grid-column: span 1;
+
+    @include respond-below(xs) {
+      grid-column: span 6;
+    }
+
+    @include respond-between(xs, sm) {
+      grid-column: span 3;
+    }
+  }
+  &-2 {
+    grid-column: span 2;
+
+    @include respond-below(xs) {
+      grid-column: span 6;
+    }
+
+    @include respond-between(xs, sm) {
+      grid-column: span 3;
+    }
+  }
+  &-3 {
+    grid-column: span 3;
+
+    @include respond-below(xs) {
+      grid-column: span 6;
+    }
+  }
+  &-4 {
+    grid-column: span 4;
+
+    @include respond-below(xs) {
+      grid-column: span 6;
+    }
+  }
+  &-5 {
+    grid-column: span 5;
+
+    @include respond-below(xs) {
+      grid-column: span 6;
+    }
+  }
+  &-6 {
+    grid-column: span 6;
+  }
+}
+
